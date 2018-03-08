@@ -9,9 +9,9 @@
 可惜部署环境是ubuntu+ruby，我就重制了个全平台的python重置版博大家一笑。
 荣誉首先属于[xtyxtyx](https://github.com/xtyxtyx/)
 
-`sorry客户真的了不起`样例：
+`sorry客户真的可以为所欲为`样例：
 
-![](static/cache/sorry-fa24ed6139e8e7e4ac4691a424096aee.gif)
+![](static/cache/sorry-703a480ff26b72c4b2d2cc195b765f35.gif)
 
 ## 部署
 1. 下载安装[python3](https://www.python.org/downloads/)
