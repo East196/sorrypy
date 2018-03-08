@@ -20,7 +20,7 @@
 pip install fabric3 flask imageio
 `
 3. 在sorrypy项目根目录下，运行cmd命令
-初始化，下载ffmepg（必须）
+初始化，下载安装ffmepg（也可以用别的方法安装，但必须安装）
 ```
 fab init
 ```
@@ -63,5 +63,5 @@ template.tpl   替换成新的字幕模板
 
 
 ## TODO
-
+- [ ] 加入锁机制限制并发
 - [ ] 自动生成页面
