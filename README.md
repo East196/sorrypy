@@ -69,6 +69,10 @@ template.tpl   替换成新的字幕模板
 
 现在这个网站就可以制作新的gif了
 
+## Note
+欢迎star~
+
+欢迎fork~~
 
 ## TODO
 - [ ] 加入锁机制限制并发
