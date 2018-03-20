@@ -15,6 +15,5 @@ def run():
 
 
 if __name__ == '__main__':
-    import imageio
 
-    imageio.plugins.ffmpeg.download()
+    init()

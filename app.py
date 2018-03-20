@@ -15,7 +15,7 @@ def hello():
 
 @app.route('/tpl/<name>/')
 def tpl(name="sorry"):
-    print(name)
+    app.logger.debug(name)
     return render_template('{name}/index.html'.format(name=name))
 
 
@@ -29,10 +29,10 @@ def tplmake(name="sorry"):
         for k, v in dict1.items():
             sentences[int(k)] = v
 
-        print(json.dumps(sentences, ensure_ascii=False))
+        app.logger.debug(json.dumps(sentences, ensure_ascii=False))
         import render
         path = render.render_gif(name, sentences)
-        print(path)
+        app.logger.debug(path)
         return '<p><a href="/{path}" target="_blank"><p>点击下载</p></a></p>'.format(path=path)
     else:
         return '<h1>只接受post请求！</h1>'
