@@ -37,14 +37,19 @@ fab run
 
 ### CentOS7下ffmpeg安装
 ```
-yum install epel-release -y
-rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
-rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
-yum install ffmpeg ffmpeg-devel -y
+wget https://ffmpeg.org/releases/ffmpeg-3.4.2.tar.bz2
+yum -y install bzip2
+yum -y install yasm
+tar -xf ffmpeg-3.4.2.tar.bz2
+cd ffmpeg-3.4.2
+./configure
+make
+make install
+
 ```
 ### Windows下ffmpeg安装
-可参考[这篇文章](https://blog.csdn.net/yy3097/article/details/51063950)
-
+方便起见，已直接将最新版ffmpeg.exe放入项目根目录，所以无需下载。
+如果需要全局使用ffmpeg，可参考[这篇文章](https://blog.csdn.net/yy3097/article/details/51063950)
 
 ## 适配新Gif
 目前，想要适配新的gif,需要改动3个文件（修改前建议备份）
