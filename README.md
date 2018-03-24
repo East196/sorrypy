@@ -20,15 +20,18 @@
 pip install fabric3 flask imageio
 `
 3. 在sorrypy项目根目录下，运行cmd命令
-初始化，下载安装ffmepg（也可以用别的方法安装，但必须安装）
+初始化，下载安装ffmepg并加入path。
+[下载地址](http://ffmpeg.org/download.html)
+检验ffmpeg安装
 ```
-fab init
+ffmpeg -v
 ```
-运行
+尽量使用3.4以上版本，低版本可能会`无法生成`或者`生成无字幕gif`。
+4. 运行
 ```
 fab run
 ```
-4. 浏览器打开
+5. 浏览器打开
 [http://localhost:5000/](http://localhost:5000/)
 然后你就可以为所欲为了~~~
 
@@ -39,6 +42,9 @@ rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
 rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 yum install ffmpeg ffmpeg-devel -y
 ```
+### Windows下ffmpeg安装
+可参考[这篇文章](https://blog.csdn.net/yy3097/article/details/51063950)
+
 
 ## 适配新Gif
 目前，想要适配新的gif,需要改动3个文件（修改前建议备份）
