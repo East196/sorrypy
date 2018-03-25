@@ -9,6 +9,8 @@
 可惜部署环境是ubuntu+ruby，我就重制了个全平台的python重置版博大家一笑。
 荣誉首先属于[xtyxtyx](https://github.com/xtyxtyx/)
 
+__[Hardy兄弟](https://github.com/q809198545)的[NodeJs版:node-sorry](https://github.com/q809198545/node-sorry)也非常好用，有[DEMO](http://119.23.239.110:3000/sorry/)为证，嘎嘎。__
+
 `sorry客户真的可以为所欲为`样例：
 
 ![](static/cache/sorry-703a480ff26b72c4b2d2cc195b765f35.gif)
@@ -19,12 +21,11 @@
 `
 pip install fabric3 flask imageio
 `
-3. 在sorrypy项目根目录下，运行cmd命令
-初始化，下载安装ffmepg并加入path。
-[下载地址](http://ffmpeg.org/download.html)
+3. 安装ffmpeg
+[ffmepg官网](http://ffmpeg.org/)下载安装ffmepg并加入path。
 检验ffmpeg安装
 ```
-ffmpeg -v
+ffmpeg -version
 ```
 尽量使用3.4以上版本，低版本可能会`无法生成`或者`生成无字幕gif`。
 4. 运行
@@ -40,12 +41,12 @@ fab run
 wget https://ffmpeg.org/releases/ffmpeg-3.4.2.tar.bz2
 yum -y install bzip2
 yum -y install yasm
+yum -y install libass libass-devel
 tar -xf ffmpeg-3.4.2.tar.bz2
 cd ffmpeg-3.4.2
-./configure
+./configure --enable-libass
 make
 make install
-
 ```
 ### Windows下ffmpeg安装
 方便起见，已直接将最新版ffmpeg.exe放入项目根目录，所以无需下载。
