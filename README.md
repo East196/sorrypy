@@ -17,9 +17,13 @@ __[Hardy兄弟](https://github.com/q809198545)的[NodeJs版:node-sorry](https://
 
 ## 部署
 1. 下载安装[python3](https://www.python.org/downloads/)
-2. cmd命令行安装fabric3,flask,imageio
+2. cmd命令行安装必须包
 `
-pip install fabric3 flask imageio
+pip install flask pillow imageio ffmpeg-python moviepy
+`
+当然也可以
+`
+pip install -r req.txt
 `
 3. 安装ffmpeg
 [ffmepg官网](http://ffmpeg.org/)下载安装ffmepg并加入path。
@@ -28,12 +32,12 @@ pip install fabric3 flask imageio
 ffmpeg -version
 ```
 尽量使用3.4以上版本，低版本可能会`无法生成`或者`生成无字幕gif`。
-4. 运行
+4. cmd中运行
 ```
-fab run
+python app.py
 ```
 5. 浏览器打开
-[http://localhost:5000/](http://localhost:5000/)
+[http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 然后你就可以为所欲为了~~~
 
 ### CentOS7下ffmpeg安装
