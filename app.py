@@ -23,11 +23,11 @@ def tpl(name="sorry"):
 def tplmake(name="sorry"):
     if request.method == 'POST':
         a = request.get_data()
-        dict1 = json.loads(a)
+        idx_sentence = json.loads(a)
 
-        sentences = list(dict1.keys())
-        for k, v in dict1.items():
-            sentences[int(k)] = v
+        sentences = list(idx_sentence.keys())
+        for idx, sentence in idx_sentence.items():
+            sentences[int(idx)] = sentence
 
         app.logger.debug(json.dumps(sentences, ensure_ascii=False))
         import render
