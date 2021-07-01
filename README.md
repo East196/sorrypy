@@ -90,6 +90,3 @@ template.tpl   替换成新的字幕模板
 
 [Github](https://github.com/East196/sorrypy) & [码云](https://gitee.com/east196/sorrypy)
 
-## TODO
-- [ ] 加入锁机制限制并发
-- [ ] 自动生成页面
