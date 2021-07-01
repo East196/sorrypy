@@ -23,7 +23,7 @@ pip install flask pillow imageio ffmpeg-python moviepy
 `
 当然也可以
 `
-pip install -r req.txt
+pip install -r requirements.txt
 `
 3. 安装ffmpeg
 [ffmepg官网](http://ffmpeg.org/)下载安装ffmepg并加入path。
@@ -89,8 +89,6 @@ template.tpl   替换成新的字幕模板
 欢迎 `star` ~ `fork` ~~
 
 [Github](https://github.com/East196/sorrypy) & [码云](https://gitee.com/east196/sorrypy)
-
-
 
 ## TODO
 - [ ] 加入锁机制限制并发
