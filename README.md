@@ -5,7 +5,7 @@
 ## 说明
 
 [sorry](https://github.com/xtyxtyx/sorry)是一款很有意思的应用，源自于`sorry有钱真的可以为所欲为`这个梗。
-亮点是可以换自己的梗生成gif。
+**亮点**是可以换自己的梗生成gif。
 
 可惜部署环境是ubuntu+ruby，我就重制了个全平台的python重置版博大家一笑。
 
@@ -17,7 +17,14 @@ __[Hardy兄弟](https://github.com/q809198545)的[NodeJs版:node-sorry](https://
 
 ![](static/cache/sorry-703a480ff26b72c4b2d2cc195b765f35.gif)
 
-## 部署
+## Docker部署
+一行搞定
+```
+docker-compose up -d
+```
+> 如果难以直视`950.18 MB`的 Docker 镜像，请移步`普通安装部署`
+
+## 普通安装部署
 
 1. 下载安装[python3](https://www.python.org/downloads/)
 
@@ -48,7 +55,7 @@ python app.py
 然后你就可以为所欲为了~~~
 
 ### CentOS7下ffmpeg安装
-```
+```bash
 wget https://ffmpeg.org/releases/ffmpeg-3.4.2.tar.bz2
 yum -y install bzip2
 yum -y install yasm
@@ -101,9 +108,6 @@ template.tpl   替换成新的字幕模板
 [Github](https://github.com/East196/sorrypy) & [Gitee](https://gitee.com/east196/sorrypy)
 
 ## 💹 关注统计
-
-### Gitee
-[![Github](https://whnb.wang/img//East196/sorrypy)](https://gitee.com/East196/sorrypy)
 
 ### Github
 [![Github](https://starchart.cc/East196/sorrypy.svg)](https://starchart.cc/East196/sorrypy)
