@@ -22,18 +22,25 @@ def tpl(name="sorry"):
 @app.route('/tpl/<name>/make', methods=['POST', 'GET'])
 def tplmake(name="sorry"):
     if request.method == 'POST':
-        a = request.get_data()
-        idx_sentence = json.loads(a)
+        try:
+            a = request.get_data()
+            idx_sentence = json.loads(a)
 
-        sentences = list(idx_sentence.keys())
-        for idx, sentence in idx_sentence.items():
-            sentences[int(idx)] = sentence
+            sentences = list(idx_sentence.keys())
+            for idx, sentence in idx_sentence.items():
+                # 验证索引是数字
+                if not idx.isdigit():
+                    return '<h1>无效的索引</h1>', 400
+                sentences[int(idx)] = sentence
 
-        app.logger.debug(json.dumps(sentences, ensure_ascii=False))
-        import render
-        path = render.render_gif(name, sentences)
-        app.logger.debug(path)
-        return '<p><a href="/{path}" target="_blank"><p>点击下载</p></a></p>'.format(path=path)
+            app.logger.debug(json.dumps(sentences, ensure_ascii=False))
+            import render
+            path = render.render_gif(name, sentences)
+            app.logger.debug(path)
+            return '<p><a href="/{path}" target="_blank"><p>点击下载</p></a></p>'.format(path=path)
+        except (json.JSONDecodeError, ValueError) as e:
+            app.logger.error(str(e))
+            return '<h1>请求参数错误</h1>', 400
     else:
         return '<h1>只接受post请求！</h1>'
 

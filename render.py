@@ -2,9 +2,20 @@
 # -*- coding: utf-8 -*-
 import hashlib
 import os
-from subprocess import Popen, PIPE
+import subprocess
+import shlex
 
 from jinja2 import Template
+
+
+def safe_path(path):
+    """验证路径安全性，防止目录遍历攻击"""
+    # 移除危险字符
+    dangerous = ["..", "~", "\\", "//"]
+    for d in dangerous:
+        if d in path:
+            raise ValueError(f"Invalid path: contains '{d}'")
+    return path
 
 
 def calculate_hash(src):
@@ -14,6 +25,7 @@ def calculate_hash(src):
 
 
 def render_gif(template_name, sentences):
+    template_name = safe_path(template_name)
     filename = template_name + "-" + calculate_hash(sentences) + ".gif"
     gif_path = "static/cache/" + filename
     if os.path.exists(gif_path):
@@ -39,16 +51,23 @@ def render_ass(template_name, sentences, filename):
 
 def make_gif_with_ffmpeg(template_name, sentences, filename):
     ass_path = render_ass(template_name, sentences, filename)
-    gif_path = "static/cache/" + filename
-    video_path = "static/" + template_name + "/template.mp4"
+    gif_path = "static/cache/" + safe_path(filename)
+    video_path = "static/" + safe_path(template_name) + "/template.mp4"
     print(ass_path, gif_path, video_path)
-    cmd = "ffmpeg -i {video_path} -r 8 -vf ass={ass_path},scale=300:-1 -y {gif_path}" \
-        .format(video_path=video_path, ass_path=ass_path, gif_path=gif_path)
-    print(cmd)
-    p = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE)
-    p.wait()
-    if p.returncode != 0:
-        print("Error.")
+    
+    # 使用参数列表而非 shell 字符串拼接，防止命令注入
+    cmd = [
+        "ffmpeg",
+        "-i", video_path,
+        "-r", "8",
+        "-vf", f"ass={ass_path},scale=300:-1",
+        "-y", gif_path
+    ]
+    print(" ".join(cmd))
+    
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"Error: {result.stderr}")
         return -1
 
 
