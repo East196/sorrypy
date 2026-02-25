@@ -1,0 +1,44 @@
+# Git
+.git
+.gitattributes
+.gitignore
+
+# Windows 可执行文件（Linux 镜像不需要）
+*.exe
+ffmpeg.exe
+
+# 文档
+docs/
+*.md
+LICENSE
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Fabric
+fabfile.py
+
+# Docker
+docker-compose.yml
+
+# 缓存文件（构建时不需要）
+static/cache/*.gif
+static/cache/*.ass
+
+# 测试文件
+test/
+tests/
+*.test.py

@@ -1,8 +1,13 @@
+version: '3.8'
 
-version: '3'
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-     - "5997:5997"
-            
+      - "5997:5997"
+    volumes:
+      # 持久化缓存目录，避免重启丢失生成的 GIF
+      - ./static/cache:/app/static/cache
+    restart: unless-stopped
